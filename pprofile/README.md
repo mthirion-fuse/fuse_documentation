@@ -37,5 +37,8 @@ The result of the build is an artifact containing only the properties specific t
 1) deploy pprofile_env (must be first)
 2) deploy app_env
 3) assign app_env to a container
+<<<<<<< HEAD
 
+=======
+>>>>>>> a5d75bd4dda51fa6193e3b6c72f994d25ba94ada
 
