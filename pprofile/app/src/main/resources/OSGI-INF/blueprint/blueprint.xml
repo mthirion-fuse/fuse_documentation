@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+    JBoss, Home of Professional Open Source
+    Copyright 2014, Red Hat, Inc. and/or its affiliates, and individual
+    contributors by the @authors tag. See the copyright.txt in the
+    distribution for a full listing of individual contributors.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!--
+   This is the OSGi Blueprint XML file defining the Camel context and routes.  Because the file is in the
+   OSGI-INF/blueprint directory inside our JAR, it will be automatically activated as soon as the bundle is installed.
+
+   The root element for any OSGi Blueprint file is 'blueprint' - you also see the namespace definitions for both the Blueprint
+   and the Camel namespaces.
+-->
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		   xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.0.0"
+    xsi:schemaLocation="
+             http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+             http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+
+
+<cm:property-placeholder persistent-id="env" >
+</cm:property-placeholder>
+
+    <!--
+      The namespace for the camelContext element in Blueprint is 'http://camel.apache.org/schema/blueprint'.
+
+      While it is not required to assign id's to the <camelContext/> and <route/> elements, it is a good idea
+      to set those for runtime management purposes (logging, JMX MBeans, ...)
+    -->
+    
+    <camelContext id="dev_pid_ctx" xmlns="http://camel.apache.org/schema/blueprint" >
+
+        <route id="dev_pid_route">
+          <from uri="timer:foo?period=5s"/>
+            <setBody>
+                <simple>Extracting environment-specific properties</simple>
+            </setBody>
+            <log message=">>> ${sys.runtime.id}"/>
+            <log message=">>> {{target.address}}"/>
+            <log message=">>> {{target.username}}"/>
+        </route>
+    </camelContext>
+
+</blueprint>
