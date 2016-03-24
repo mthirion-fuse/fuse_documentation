@@ -37,8 +37,10 @@ The result of the build is an artifact containing only the properties specific t
 1) deploy pprofile_env (must be first)
 2) deploy app_env
 3) assign app_env to a container
-<<<<<<< HEAD
 
-=======
->>>>>>> a5d75bd4dda51fa6193e3b6c72f994d25ba94ada
+### NOTE
+* [Management](http://fabric8.io/guide/management.html) with centralised logging and metrics
+* [Continuous Delivery](http://fabric8.io/guide/cdelivery.html) based on Jenkins, Nexus and Sonarqube with integrated [Chat](http://fabric8.io/guide/chat.html)
+* [iPaaS](http://fabric8.io/guide/ipaas.html) - an Integration Platform as a Service with deep integration with Apache ActiveMQ, Camel and CXF
+* [Tooling](http://fabric8.io/guide/tools.html) for developers and devops
 
