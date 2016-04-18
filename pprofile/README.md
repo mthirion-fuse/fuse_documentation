@@ -17,9 +17,10 @@ The Maven project is made of 3 elements: a parent and 2 submodules.
   The parent module gathers the information reusable by the submodules like:
   - The bom file of Fuse v6.2
   - The declaration of the maven bundle plugin
-    It uses the fabric8-maven-plugin v1.1.0.CR5 instead of v1.2.0.redhat-133
-    This is because the project is developed using Maven Snaphots versions which are not handled correctly by the v1.2.0.redhat-133 (it creates wrong maven coordinates within the created profile due to a wrong value of the "version" parameter in the json request --the version is made of 0.0.1-timestamp instead of 0.0.1-Snapshot)
+    It uses the fabric8-maven-plugin v1.1.0.CR5 (instead of v1.2.0.redhat-133)
     This version of the plugin requires an extra library available @ https://repository.jboss.org/
+    Notice that the maven deploy goal changes the "version" attribute to a timestamped version when working with snapshots.
+    If combined with the "fabric8:deploy" goal this leads to an issue in the resulting fabric8 profile that will contain wrong maven coordinates.  The wrong version can be seen in the json request when maven is executed with -e -X options (the version is made of 0.0.1-timestamp instead of 0.0.1-Snapshot)
 
 ## environment
   The pprofile_env submodule create an environment-dependent profile that contains properties for one specific environment.
@@ -60,7 +61,7 @@ For a better experience with the example, install Fuse v6 and create 2 Fabrics; 
  
 # Fuse without Fabric
 The principle is applicable with Fuse standalone.
-In taht case, the environment-dependent property file(s) will simply have to be placed in $FUSE_HOME/etc (with a .cfg extension instead of .properties).
+In that case, the environment-dependent property file(s) will simply have to be placed in $FUSE_HOME/etc (with a .cfg extension instead of .properties).
 
 
 # Links
