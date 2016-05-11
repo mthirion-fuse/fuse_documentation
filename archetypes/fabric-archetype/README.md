@@ -37,7 +37,8 @@ archetypeArtifactId=fabric-archetype
 archetypeVersion=1.0.0
 
 archetypeRepository="myArchetypeRepository"
->>
+*
+*
 >>
 >> mvn archetype:generate                                  
 
