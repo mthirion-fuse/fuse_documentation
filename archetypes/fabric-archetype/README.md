@@ -44,3 +44,4 @@ mvn archetype:generate                                  \
       -Dversion=$artifactVersion                        \
       -DarchetypeRepository=$archetypeRepository $*
 
+
