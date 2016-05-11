@@ -40,6 +40,9 @@ archetypeRepository="myArchetypeRepository"
 
 
 
+
+
+
 >>
 >> mvn archetype:generate                                  
 
