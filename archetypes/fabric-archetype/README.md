@@ -15,7 +15,13 @@ The generic maven archetype contains:
          - bundle
          - fabric8
          - release
-         
+
+ * A blueprint.xml         
+
+ * An empty java bean
+
+ * 2 unit test files (java & blueprint)
+
 
 # Artifact generation
 groupId="myGroupId"
