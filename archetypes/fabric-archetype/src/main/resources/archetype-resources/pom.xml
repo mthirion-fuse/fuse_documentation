@@ -16,6 +16,7 @@
 
 
 		<version.maven-bundle-plugin>2.3.7</version.maven-bundle-plugin>
+		<version.maven-resource-plugin>2.7</version.maven-resource-plugin>
 		<maven.compiler.target>1.7</maven.compiler.target>
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<version.maven-surefire-plugin>2.15</version.maven-surefire-plugin>
@@ -304,6 +305,31 @@
 				</resources>
 
 				<plugins>
+<!-- 					<plugin> -->
+<!-- 						<artifactId>maven-resources-plugin</artifactId> -->
+<!-- 						<version>${version.maven-resource-plugin}</version> -->
+<!-- 						<executions> -->
+<!-- 							<execution> -->
+<!-- 								<id>copy-resources</id> -->
+<!-- 								here the phase you need -->
+<!-- 								<phase>validate</phase> -->
+<!-- 								<goals> -->
+<!-- 									<goal>copy-resources</goal> -->
+<!-- 								</goals> -->
+<!-- 								<configuration> -->
+<!-- 									<outputDirectory>${basedir}/src/main/fabric8</outputDirectory> -->
+<!-- 									<resources> -->
+<!-- 										<resource> -->
+<!-- 											<directory>src/main/resources/prod</directory> -->
+<!-- 											<filtering>true</filtering> -->
+<!-- 										</resource> -->
+<!-- 									</resources> -->
+<!-- 								</configuration> -->
+<!-- 							</execution> -->
+<!-- 						</executions> -->
+<!-- 					</plugin> -->
+
+
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-surefire-plugin</artifactId>
