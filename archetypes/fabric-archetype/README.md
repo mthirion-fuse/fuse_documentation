@@ -39,8 +39,8 @@ archetypeVersion=1.0.0
 archetypeRepository="myArchetypeRepository"
 
 
-
-mvn archetype:generate                                  \
+>>
+>> mvn archetype:generate                                  
 
       -DarchetypeGroupId=$archetypeGroupId                \
 
