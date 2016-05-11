@@ -38,6 +38,7 @@ archetypeVersion=1.0.0
 
 archetypeRepository="myArchetypeRepository"
 
+\n
 
 >>
 >> mvn archetype:generate                                  
