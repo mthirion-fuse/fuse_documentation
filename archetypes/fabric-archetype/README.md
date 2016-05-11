@@ -25,23 +25,35 @@ The generic maven archetype contains:
 
 # Artifact generation
 groupId="myGroupId" 
+
 artifactId="myArtifactId" 
+
 artifactVersion="myArtifactversion"
 
 archetypeGroupId=org.rh.integration 
+
 archetypeArtifactId=fabric-archetype 
+
 archetypeVersion=1.0.0
 
 archetypeRepository="myArchetypeRepository"
 
 
+
 mvn archetype:generate                                  \
+
       -DarchetypeGroupId=$archetypeGroupId                \
+
       -DarchetypeArtifactId=$archetypeArtifactId         \
+
       -DarchetypeVersion=$archetypeVersion                \
+
       -DgroupId=$groupId                                \
+
       -DartifactId=$artifactId                          \
+
       -Dversion=$artifactVersion                        \
+
       -DarchetypeRepository=$archetypeRepository $*
 
 
