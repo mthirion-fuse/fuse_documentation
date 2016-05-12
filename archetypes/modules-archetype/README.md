@@ -1,29 +1,7 @@
-# Generic Maven Archetype for a Fabric bundle
-The generic maven archetype contains:
- * A pom.xml with
-   - bundle packaging
-   - fuse bom
-   - fabric properties (parent, features, profile)
-   - scm entry
-   - repositories list
-   - distributionManagement pointing to localhost:8081
-   - basic dependencies
-   - a default build profile embedding:
-      - fabric8 resource filtering
-      - basic plugins
-         - surefire
-         - bundle
-         - fabric8
-         - release
-
- * A blueprint.xml         
-
- * An empty java bean
-
- * 2 unit test files (java & blueprint)
+# Generic Parent Archetype for a project with submodules
 
 
-# Artifact generation
+## Artifact generation
 groupId="myGroupId" 
 
 artifactId="myArtifactId" 
@@ -32,7 +10,7 @@ artifactVersion="myArtifactversion"
 
 archetypeGroupId=org.rh.integration 
 
-archetypeArtifactId=fabric-archetype 
+archetypeArtifactId=modules-archetype 
 
 archetypeVersion=1.0.0
 
