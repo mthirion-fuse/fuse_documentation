@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<!-- METADATA -->
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>${groupId}</groupId>
+	<artifactId>${artifactId}</artifactId>
+	<version>${artifactVersion}</version>
+	<packaging>pom</packaging>
+	<description>parent profile</description>
+
+    <modules>
+		<module>myModule</module>
+    </modules>
+    
+    
+	<!-- PROPERTIES -->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+
+		<version.maven-bundle-plugin>2.3.7</version.maven-bundle-plugin>
+		<version.maven-resource-plugin>2.7</version.maven-resource-plugin>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<version.maven-surefire-plugin>2.15</version.maven-surefire-plugin>
+		<cxf-version>3.0.2</cxf-version>
+
+		<fabric.version>1.2.0-SNAPSHOT</fabric.version>
+		<jboss.fuse.bom.version>6.2.0.redhat-133</jboss.fuse.bom.version>
+
+		<skipTests>false</skipTests>
+	</properties>
+
+
+	<!-- DEPENDENCY MANAGEMENT -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.jboss.fuse.bom</groupId>
+				<artifactId>jboss-fuse-parent</artifactId>
+				<version>${jboss.fuse.bom.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+
+	<!-- DISTRIBUTION MANAGEMENT -->
+	<distributionManagement>
+		<snapshotRepository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>nexus-snapshots</id>
+			<url>http://127.0.0.1:8081/nexus/content/repositories/snapshots</url>
+			<layout>default</layout>
+		</snapshotRepository>
+		<repository>
+			<uniqueVersion>true</uniqueVersion>
+			<id>nexus</id>
+			<url>http://127.0.0.1:8081/nexus/content/repositories/releases</url>
+			<layout>default</layout>
+		</repository>
+	</distributionManagement>
+
+
+
+	<!-- REPOSITORIES -->
+	<repositories>
+		<repository>
+			<id>central</id>
+			<name>Maven Central</name>
+			<url>http://repo1.maven.org/maven2</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+		<repository>
+			<id>apache</id>
+			<name>Apache Maven</name>
+			<url>http://repo.maven.apache.org/maven2/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+		<repository>
+			<id>fuse</id>
+			<name>Fuse Source</name>
+			<url>https://repo.fusesource.com/nexus/content/groups/public/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+		<repository>
+			<id>jboss</id>
+			<name>JBoss</name>
+			<url>https://repository.jboss.org/maven2</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+		<repository>
+			<id>jboss-extra</id>
+			<name>JBoss Extra</name>
+			<url>https://repository.jboss.org/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+		<repository>
+			<id>jboss-ea</id>
+			<name>JBoss Early Access</name>
+			<url>http://origin-repository.jboss.org/nexus/content/groups/ea/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+		<repository>
+			<id>servicemix</id>
+			<name>Service Mix</name>
+			<url>http://svn.apache.org/repos/asf/servicemix/m2-repo/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>central</id>
+			<name>Maven Plugin Repository</name>
+			<url>http://repo1.maven.org/maven2</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<dependencies/>
+
+
+	<!-- BUILD PLUGINS -->
+	<profiles>
+		<profile>
+			<id>default</id>
+			<build>
+
+				<finalName>buildName</finalName>
+
+				<plugins>
+					<plugin>
+						<artifactId>maven-resources-plugin</artifactId>
+						<version>${version.maven-resource-plugin}</version>
+					</plugin>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>${version.maven-surefire-plugin}</version>
+					</plugin>
+
+					<plugin>
+						<groupId>org.apache.felix</groupId>
+						<artifactId>maven-bundle-plugin</artifactId>
+						<version>${version.maven-bundle-plugin}</version>
+					</plugin>
+
+					<plugin>
+						<groupId>io.fabric8</groupId>
+						<artifactId>fabric8-maven-plugin</artifactId>
+						<!-- <version>1.2.0.redhat-133</version> -->
+						<version>1.1.0.CR5</version>
+					</plugin>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-release-plugin</artifactId>
+						<version>2.5.3</version>
+					</plugin>
+
+				</plugins>
+
+			</build>
+
+		</profile>
+	</profiles>
+	
+
+</project>

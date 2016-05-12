@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor name="fabric-archetype-descriptor">
+  <fileSets>
+    <fileSet filtered="true" packaged="false">
+      <directory>src/main/fabric8</directory>
+    </fileSet>
+    <fileSet filtered="true" packaged="false">
+      <directory>src/main/java</directory>
+      <includes>
+        <include>**/*.java</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" packaged="false">
+      <directory>src/main/resources</directory>
+      <includes>
+        <include>**/OSGI-INF/blueprint/*.xml</include>
+      </includes>
+    </fileSet>    
+    <fileSet filtered="true" packaged="false">
+      <directory>src/main/test</directory>
+      <includes>
+        <include>**/java/*.java</include>
+      </includes>
+    </fileSet>    
+  </fileSets>
+</archetype-descriptor>
